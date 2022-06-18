@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
-
+import services.SSLEmail;
 import dao.NhanVienDAO;
 import models.CNhanVien;
 import org.apache.log4j.Logger;
@@ -31,7 +31,7 @@ public class WebController {
 
     @RequestMapping(value = "/index")
     public ModelAndView Index_UI() {
-        logger.info("Hiểm thị toàn bộ sanh sách nhân viên");
+        logger.info("Show all employee information!");
         List<CNhanVien> listNV = dao.LayDanhSachNhanVien();
         return new ModelAndView("listNhanVien", "list", listNV);
     }
@@ -45,5 +45,12 @@ public class WebController {
         listNV.add(nv);
         return new ModelAndView("listNhanVien", "list", listNV);
     }
-    
+
+
+    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
+    public ModelAndView SendEmail() {
+        SSLEmail email = new SSLEmail();
+        email.sendEmail();
+        return new ModelAndView("SendEmail");
+    }
 }

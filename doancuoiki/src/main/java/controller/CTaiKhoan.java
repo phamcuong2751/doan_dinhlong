@@ -19,13 +19,14 @@ public class CTaiKhoan {
 
     @RequestMapping(value = "/admin/getAllTK")
     public ModelAndView getAllTaiKhoanController() {
-        logger.info("Lấy toàn bộ tài khoản");
+        logger.info("Get all account!");
         List<MTaiKhoan> listTK = TKdao.LayDanhSachTaIKhoan();
         return new ModelAndView("listTaiKhoan", "listTK", listTK);
     }
 
     @RequestMapping(value = "/admin/tst")
     public ModelAndView tstUI() {
+
         return new ModelAndView("testTemplate");
     }
 }

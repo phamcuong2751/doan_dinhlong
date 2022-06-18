@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="doancuoiki" options="-endorseddirs &quot;D:\Phu Cuong\Java Web\1760472\doancuoiki\target/endorsed&quot;" />
+      <module name="doancuoiki" options="-endorseddirs &quot;D:\Dinh Long\doan_dinhlong\doancuoiki\target/endorsed&quot;" />
     </option>
   </component>
 </project>
