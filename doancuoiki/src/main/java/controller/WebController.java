@@ -29,13 +29,15 @@ public class WebController {
     @Autowired
     NhanVienDAO dao;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView Index_UI() {
-        logger.info("Show all employee information!");
-        List<CNhanVien> listNV = dao.LayDanhSachNhanVien();
-        return new ModelAndView("listNhanVien", "list", listNV);
+        return new ModelAndView("authentication/login");
     }
 
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public ModelAndView Home_UI() {
+        return new ModelAndView("homeProduction");
+    }
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public ModelAndView SeachNhanVien(String manv) {
         logger.info("Tìm kiếm nhân viên theo mã nhân viên");
@@ -45,8 +47,6 @@ public class WebController {
         listNV.add(nv);
         return new ModelAndView("listNhanVien", "list", listNV);
     }
-
-
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
     public ModelAndView SendEmail() {
         SSLEmail email = new SSLEmail();
